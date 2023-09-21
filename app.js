@@ -1,4 +1,5 @@
 const express = require("express");
+const axios = require("axios");
 const app = express();
 const port = process.env.PORT || 3001;
 
@@ -13,7 +14,7 @@ app.get('/req', (req, res) => {
 });
 
 app.get('/meunome', (req, res) => {
-  const meuNome = "Natasha Siebra";
+  const meuNome = "Fábio Duarte de Oliveira";
   res.send(`Meu nome é ${meuNome}`);
 });
 
@@ -21,9 +22,21 @@ app.get('/tico', (req, res) => {
   res.send('teco');
 });
 
+app.get('/pokemons', async (req, res) => {
+  try {
+    const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=10');
+    const pokemons = response.data.results.map(pokemon => pokemon.name);
+    res.json(pokemons);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erro ao buscar pokémons' });
+  }
+});
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
 const html = `
+
 
 <!DOCTYPE html>
 <html>
