@@ -17,17 +17,9 @@ app.get('/meunome', (req, res) => {
   const meuNome = "Natasha Siebra";
   res.send(`Meu nome é ${meuNome}`);
 });
-
-app.get('/tico', (req, res) => {
-  res.send('teco');
-});
-
-
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
 const html = `
-
-
 <!DOCTYPE html>
 <html>
   <head>
