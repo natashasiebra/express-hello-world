@@ -14,7 +14,7 @@ app.get('/req', (req, res) => {
 });
 
 app.get('/meunome', (req, res) => {
-  let meuNome = "Natasha Siebra";
+  const meuNome = "Natasha Siebra";
   res.send(`Meu nome é ${meuNome}`);
 });
 
