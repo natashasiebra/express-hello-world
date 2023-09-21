@@ -13,7 +13,7 @@ app.get('/req', (req, res) => {
 });
 
 app.get('/meunome', (req, res) => {
-  const meuNome = "Fábio Duarte de Oliveira";
+  const meuNome = "Natasha Siebra";
   res.send(`Meu nome é ${meuNome}`);
 });
 
